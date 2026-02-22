@@ -134,7 +134,7 @@ function make_solid(solid_color){
 function touchStarted(){
 	for (var i = 6; i < imgs.length; i++)	{
 		if(imgs[i].check(true)){
-			window.open('https://thegraycuber.github.io/', '_self');
+			window.open('https://shreyas.github.io/', '_self');
 		}
 	}	
 }
