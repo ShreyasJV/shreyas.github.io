@@ -54,20 +54,18 @@ function setup() {
 
 	
 	pages = [];
-	pages.push(new Page("Cursed Equations",'Electric','https://thegraycuber.github.io/cursedequations.html'));
-	pages.push(new Page('Complex Primes','Sunset','https://thegraycuber.github.io/quadratic.html'));
-	pages.push(new Page('Group Visualizer','Forest','https://thegraycuber.github.io/group_visualizer.html'));
-	// pages.push(new Page("Rubik's Cube Calculator",'Forest','https://thegraycuber.github.io/cubecalculator.html'));
-	// pages.push(new Page('Complex Grapher','Electric','https://thegraycuber.github.io/grapher.html'));
-	pages.push(new Page('Hypercomplex Grapher','Electric','https://thegraycuber.github.io/hypercomplex_grapher.html'));
-	pages.push(new Page('Fastest Numbers','Dark','https://thegraycuber.github.io/fast_numbers.html'));
-	pages.push(new Page('Hexponents!','Sunset','https://thegraycuber.github.io/hexponents.html'));
+	pages.push(new Page("Personal", 'Electric', 'https://shreyasjv.github.io/#personal'));
+	pages.push(new Page("Interests", 'Sunset', 'https://shreyasjv.github.io/index.html#interests'));
+	pages.push(new Page("Education", 'Forest', 'https://shreyasjv.github.io/education.html'));
+	pages.push(new Page("Research Experience", 'Electric', 'https://shreyasjv.github.io/education.html'));
+	pages.push(new Page("Awards & Activities", 'Dark', 'https://shreyasjv.github.io/awards.html'));
+	pages.push(new Page("Projects", 'Sunset', 'https://shreyasjv.github.io/projects.html'));
 	
 	
 	icon_rad = px*6.5;
 	icons = [];
 	icon_maker = [];
-	let icon_paths = ['cursed','gaussian','group','hyper','fastest','hexponent'];
+	let icon_paths = ['personal','interests','education','research','awards','projects'];
 	for (let ic = 0; ic < pages.length; ic++){
 		icon_maker.push([[0,0],px*1.2,loadImage(media_prefix+"icon_"+icon_paths[ic]+".png"),pages[ic].title]);
 	}
