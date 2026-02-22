@@ -1,9 +1,9 @@
 
 var textValues = [	
-	"Hi, I'm Asher",
-	"Math is beautiful.",
-	"I love to study and experiment with it.",
-	"I create videos about the interesting\n things that I learn and find, and write\n programs to make cool visualizations.",
+	"Shreyas Jekki Venkateshwarulu.",
+	"High-Energy Theoretical Physicist.",
+	"From Bangalore, India — raised across\nBangalore, Chennai, Delhi & Hyderabad.",
+	"This is my personal universe.\nFor academic work, visit my academic site.",
 	"",
 	"",
 	"",
@@ -11,30 +11,23 @@ var textValues = [
 ];
 
 var infoText = [
-	["You can often find me with my wife",
-"Hayley, watching thrillers, playing",
-"Silksong or Star Realms, shopping",
-"at vintage stores and eating vegan food."],
-["Two of my roommates are cats!",
-"Tog can be shy, but will meow back",
-"if you talk to him. Poe is more",
-"friendly and loves head scratches."],
-["Why do I go by the TheGrayCuber?",
-"My last name is Gray, and I originally",
-"made videos about Rubik's cubes.",
-"My favorite is the megaminx!"],
-["Ik hou niet alleen van wiskunde!",
-"I love learning other languages.",
-"I'm pretty good with Dutch,",
-"and working on Russian."],
-["My logo is a representation of",
-"the 15th cyclotomic polynomial.",
-"Why 15? It's the first interesting case,",
-"being the product of two odd primes."],
-["Really? The light color scheme?",
-"I mean, I added it here to cover",
-"my bases, but I didn't expect",
-"anyone to actually select it."]
+	[
+"In my breaks I enjoy origami,",
+"reading, writing, walking, running,",
+"gym, and experimenting in",
+"the kitchen."
+],
+[
+"Outside work: film, theatre, music,",
+"climbing, bouldering, hiking,",
+"travelling, & debating —",
+],
+[
+"This is my personal page.",
+"For research, publications,",
+"and academic details,",
+"visit my academic website."
+]
 ];
 
 var info_rand = [];
