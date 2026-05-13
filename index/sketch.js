@@ -90,7 +90,7 @@ function draw() {
 		} else if (pages[pg].title == "Fastest Numbers") {
 			fastestDraw();
 		} else if (pages[pg].title == "About Me"){
-		    aboutmePrep();
+		    aboutmeDraw();
 		}
 		pop();
 	}
