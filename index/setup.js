@@ -42,11 +42,11 @@ function setup() {
 	preview_os = new Offset(createVector(0,0));
 	
 	
-	//logo_shapes = [];
-	//logo_shapes.push(new LogoItem('pentb',[0,0],px,0.5,1.1));
-	//logo_shapes.push(new LogoItem('pent',[0,0],px,0.5,1.1));
-	//logo_shapes.push(new LogoItem('tri1',[0,0],px,0,0.6));
-	//logo_shapes.push(new LogoItem('tri2',[0,0],px,1.1,1.6));
+	logo_shapes = [];
+	logo_shapes.push(new LogoItem('pentb',[0,0],px,0.5,1.1));
+	logo_shapes.push(new LogoItem('pent',[0,0],px,0.5,1.1));
+	logo_shapes.push(new LogoItem('tri1',[0,0],px,0,0.6));
+	logo_shapes.push(new LogoItem('tri2',[0,0],px,1.1,1.6));
 	
 	logo_words = [];
 	logo_words.push(new LogoItem('Shreyas',[px*0.5,-px*1.8],px*0.6,0,0.6));
