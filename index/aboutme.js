@@ -1,66 +1,51 @@
 function aboutmePrep(){
-	
-	push();
 
-	textAlign(CENTER, CENTER);
+	// optional future setup
+	// currently empty on purpose
 
-	fill(palette[0].front);
-
-	// Title
-	textSize(px * 0.9);
-	text("About Me", 0, -px * 4);
-
-	// Body
-	textSize(px * 0.45);
-
-	text(
-`Hi, I'm Shreyas.
-
-I build interactive math visuals, generative UI systems,
-and experimental web-based projects.
-
-This site is a collection of explorations in:
-• mathematics
-• geometry
-• visualisation
-• creative coding (p5.js)
-
-Thanks for stopping by ✨`,
-	0, 0
-	);
-
-	pop();
 }
 
 function aboutmeDraw(){
 
 	push();
 
-	textAlign(CENTER, CENTER);
-
 	fill(palette[0].front);
 
-	// Title
-	textSize(px * 0.9);
-	text("About Me", 0, -px * 4);
+	textAlign(CENTER, CENTER);
 
-	// Body
-	textSize(px * 0.45);
+	// Main title
+	textSize(px * 0.85);
 
 	text(
-`Hi, I'm Shreyas.
+		"Hi, I'm Shreyas.",
+		0,
+		-px * 2.2
+	);
 
-I build interactive math visuals, generative UI systems,
-and experimental web-based projects.
+	// Body text
+	textSize(px * 0.38);
 
-This site is a collection of explorations in:
-• mathematics
-• geometry
-• visualisation
-• creative coding (p5.js)
+	text(
+`I'm an MSc Physics student interested in
+high energy theory, mathematical physics,
+visualisation, and creative coding.
 
-Thanks for stopping by ✨`,
-	0, 0
+I enjoy building interactive mathematical tools,
+experimental interfaces, and generative graphics
+using JavaScript and p5.js.`,
+		0,
+		0
+	);
+
+	// small footer
+	fill(palette[0].medium);
+
+	textSize(px * 0.28);
+
+	text(
+		"thanks for visiting ✨",
+		0,
+		px * 3.2
 	);
 
 	pop();
