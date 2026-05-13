@@ -42,15 +42,7 @@ function setup() {
 	preview_os = new Offset(createVector(0,0));
 	
 	logo_shapes = [];
-	logo_shapes.push(
-	new Icon(
-		[0,0],
-		px*2,
-		loadImage(media_prefix + 'icon_shreyas.png'),
-		'https://shreyasjv.github.io/shreyas.github.io/',
-		'_self'
-	)
-	);
+	logo_shapes.push(new LogoItem('icon_shreyas',[0,0],px*4,0,1));
 	//logo_shapes.push(new LogoItem('pentb',[0,0],px,0.5,1.1));
 	//logo_shapes.push(new LogoItem('pent',[0,0],px,0.5,1.1));
 	//logo_shapes.push(new LogoItem('tri1',[0,0],px,0,0.6));
