@@ -142,11 +142,14 @@ function draw() {
 	}
 		
 	push();
-	translate(logo_os.pos.x,logo_os.pos.y,5);
-	logo_shapes[0].check();
-	for(let l_shape of logo_shapes){
-		l_shape.display();
-	}
+	translate(logo_os.pos.x, logo_os.pos.y);
+	image(
+	logoImg,
+	0,
+	0,
+	px * 4,
+	px * 4
+	);
 	pop();
 
 }
@@ -154,11 +157,23 @@ function draw() {
 
 function touchStarted(){
 	
-	if (logo_shapes[0].check(true)){
+	//if (logo_shapes[0].check(true)){
+	//	if (page_mode == 'home'){
+	//		window.open('https://thegraycuber.github.io/about.html', '_self');	
+	//		return;
+	//	} else if (page_mode == 'preview'){
+	//		from_preview();
+	//		return;
+	//	}
+	//}
+	let dx = mouseX - (origin.x + logo_os.pos.x);
+	let dy = mouseY - (origin.y + logo_os.pos.y);
+	if (sqrt(dx*dx + dy*dy) < px * 2){
 		if (page_mode == 'home'){
-			window.open('https://thegraycuber.github.io/about.html', '_self');	
-			return;
-		} else if (page_mode == 'preview'){
+		window.open('https://thegraycuber.github.io/about.html', '_self');	
+		return;
+		} 
+		else if (page_mode == 'preview'){
 			from_preview();
 			return;
 		}
