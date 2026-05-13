@@ -46,9 +46,9 @@ function setup() {
 	logo_shapes.push(new LogoItem('tri2',[0,0],px,1.1,1.6));
 	
 	logo_words = [];
-	logo_words.push(new LogoItem('The',[px*0.5,-px*1.8],px*0.6,0,0.6));
-	logo_words.push(new LogoItem('Gray',[px*0.4,-px*1.08],px,0.5,1.1));
-	logo_words.push(new LogoItem('Cuber',[px*0.5,px*-0.3],px*0.6,1,1.6));
+	logo_words.push(new LogoItem('Shreyas',[px*0.5,-px*1.8],px*0.6,0,0.6));
+	logo_words.push(new LogoItem('Jekki',[px*0.4,-px*1.08],px,0.5,1.1));
+	logo_words.push(new LogoItem('Venkateshwarulu',[px*0.5,px*-0.3],px*0.6,1,1.6));
 	
 	
 
