@@ -57,10 +57,12 @@ function setup() {
 	//logo_shapes.push(new LogoItem('tri2',[0,0],px,1.1,1.6));
 	
 	logo_words = [];
-	logo_words.push(new LogoItem('Shreyas',[px*0.5,-px*1.8],px*0.6,0,0.6));
-	logo_words.push(new LogoItem('Jekki',[px*0.4,-px*1.08],px,0.5,1.1));
-	logo_words.push(new LogoItem('Venkateshwarulu',[px*0.5,px*-0.3],px*0.6,1,1.6));
-	
+	let wordX = px * 0.2;   // shifted left
+	let baseY = 0;          // common baseline
+	let wordSize = px * 0.75;
+	logo_words.push(new LogoItem('Shreyas', [wordX, baseY - px*0.8], wordSize, 0, 0.6));
+	logo_words.push(new LogoItem('Jekki', [wordX, baseY], wordSize, 0, 0.6));
+	logo_words.push(new LogoItem('Venkateshwarulu', [wordX, baseY + px*0.8], wordSize, 0, 0.6));
 	
 
 	
@@ -83,11 +85,15 @@ function setup() {
 		icon_maker.push([[0,0],px*1.2,loadImage(media_prefix+"icon_"+icon_paths[ic]+".png"),pages[ic].title]);
 	}
 
-	icon_maker.push([[-1.3*px,px],px*0.9,loadImage(media_prefix+'personal_email_icon.png'),'shreyas1302@gmail.com','_blank']);
-	icon_maker.push([[1.5*px,px],px*0.9,loadImage(media_prefix+'icon_github.png'),'https://github.com/ShreyasJV','_blank']);
-	icon_maker.push([[0.1*px,px],px*0.9,loadImage(media_prefix+'icon_linkedin'),'https://www.linkedin.com/in/shreyas-jv','_blank']);
-	icon_maker.push([[-1.3*px,px],px*0.9,loadImage(media_prefix+'icon_mail.png'),'s.jekkivenkateshwarulu@se24.qmul.ac.uk','_blank']);
-	//icon_maker.push([[0.6*px,px],px*0.8,loadImage('icon_github1.png'),'https://github.com/thegraycuber','_blank']);
+	let startX = -1.8 * px;
+	let y = px * 1.0;
+	let spacing = 1.2 * px;
+	let iconSize = px * 0.9;
+	
+	icon_maker.push([[startX + 0 * spacing, y], iconSize, loadImage(media_prefix + 'personal_email_icon.png'), 'mailto:shreyas1302@gmail.com', '_blank']);
+	icon_maker.push([[startX + 1 * spacing, y], iconSize, loadImage(media_prefix + 'icon_github.png'), 'https://github.com/ShreyasJV', '_blank']);
+	icon_maker.push([[startX + 2 * spacing, y], iconSize, loadImage(media_prefix + 'icon_linkedin.png'), 'https://www.linkedin.com/in/shreyas-jv', '_blank']);
+	icon_maker.push([[startX + 3 * spacing, y], iconSize, loadImage(media_prefix + 'icon_mail.png'), 'mailto:s.jekkivenkateshwarulu@se24.qmul.ac.uk', '_blank']);
 	
 	for (let im of icon_maker){
 		icons.push(new Icon(im[0], im[1], im[2], im[3], im[4]));
