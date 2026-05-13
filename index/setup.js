@@ -59,14 +59,14 @@ function setup() {
 
 	
 	pages = [];
-	pages.push(new Page("about me",'Electric','https://shreyasjv.github.io/'));
-	pages.push(new Page('Complex Primes','Sunset','https://thegraycuber.github.io/quadratic.html'));
-	pages.push(new Page('about','Forest','https://shreyasjv.github.io/'));
+	pages.push(new Page('Research Experience','Electric','https://shreyasjv.github.io/'));//research icon
+	pages.push(new Page('Projects','Sunset','https://thegraycuber.github.io/quadratic.html'));//projects icon
+	pages.push(new Page('About Me','Forest','https://shreyasjv.github.io/'));//about me icon
 	// pages.push(new Page("Rubik's Cube Calculator",'Forest','https://thegraycuber.github.io/cubecalculator.html'));
 	// pages.push(new Page('Complex Grapher','Electric','https://thegraycuber.github.io/grapher.html'));
-	pages.push(new Page('Hypercomplex Grapher','Electric','https://thegraycuber.github.io/hypercomplex_grapher.html'));
-	pages.push(new Page('Fastest Numbers','Dark','https://thegraycuber.github.io/fast_numbers.html'));
-	pages.push(new Page('Hexponents!','Sunset','https://thegraycuber.github.io/hexponents.html'));
+	pages.push(new Page('Hypercomplex Grapher','Electric','https://thegraycuber.github.io/hypercomplex_grapher.html'));//awards icon
+	pages.push(new Page('Education','Dark','https://thegraycuber.github.io/fast_numbers.html'));//education icon
+	pages.push(new Page('Hexponents!','Sunset','https://thegraycuber.github.io/hexponents.html'));//hexponents icon
 	
 	
 	icon_rad = px*6.5;
