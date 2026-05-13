@@ -89,8 +89,8 @@ function draw() {
 			hexponentDraw();
 		} else if (pages[pg].title == "Fastest Numbers") {
 			fastestDraw();
-		} else if (pages[pg].title == "about me"){
-		aboutmePrep();
+		} else if (pages[pg].title == "About Me"){
+		    aboutmePrep();
 		}
 		pop();
 	}
@@ -223,7 +223,7 @@ function prep_preview(){
 	} else if (pages[pg].title == "Fastest Numbers"){
 		fastestPrep();
 	}
-	else if (pages[pg].title == "about me"){
+	else if (pages[pg].title == "About Me"){
 		aboutmePrep();
 	}
 }
