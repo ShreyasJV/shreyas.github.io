@@ -52,8 +52,8 @@ function setup() {
 	let wordX = px * 0.2;   // shifted left
 	let baseY = 0;          // common baseline
 	let wordSize = px * 0.75;
-	logo_words.push(new LogoItem('Shreyas', [wordX, baseY + 2*px*0.8], wordSize, 0, 0.6));
-	logo_words.push(new LogoItem('Jekki', [wordX, baseY + px*0.8], wordSize, 0, 0.6));
+	logo_words.push(new LogoItem('Shreyas', [wordX, baseY - 2*px*0.8], wordSize, 0, 0.6));
+	logo_words.push(new LogoItem('Jekki', [wordX, baseY - px*0.8], wordSize, 0, 0.6));
 	logo_words.push(new LogoItem('Venkateshwarulu', [wordX, baseY], wordSize, 0, 0.6));
 	
 
