@@ -59,7 +59,7 @@ function setup() {
 	pages = [];
 	pages.push(new Page("about",'Electric','https://shreyasjv.github.io/'));
 	pages.push(new Page('Complex Primes','Sunset','https://thegraycuber.github.io/quadratic.html'));
-	pages.push(new Page('Group Visualizer','Forest','https://thegraycuber.github.io/group_visualizer.html'));
+	pages.push(new Page('about','Forest','https://shreyasjv.github.io/'));
 	// pages.push(new Page("Rubik's Cube Calculator",'Forest','https://thegraycuber.github.io/cubecalculator.html'));
 	// pages.push(new Page('Complex Grapher','Electric','https://thegraycuber.github.io/grapher.html'));
 	pages.push(new Page('Hypercomplex Grapher','Electric','https://thegraycuber.github.io/hypercomplex_grapher.html'));
