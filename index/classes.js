@@ -48,6 +48,32 @@ class Icon{
 
 
 //##################################################################################################
+// Simple image-based logo item to replace LogoItem with multiple shapes
+class ImageLogoItem {
+	constructor(img, pos, size) {
+		this.img = img;
+		this.pos = createVector(pos[0], pos[1]);
+		this.size = size;
+	}
+	
+	display() {
+		image(this.img, this.pos.x, this.pos.y, this.size, this.size);
+	}
+	
+	check(clicked = false) {
+		let mouseLogo = createVector(mouseX - width/2 - logo_os.pos.x, mouseY - height/2 - logo_os.pos.y);
+		if (mouseLogo.dist(this.pos) < this.size * 0.5) {
+			if (clicked) {
+				return true;
+			}
+			return true;
+		}
+		return false;
+	}
+}
+
+
+//##################################################################################################
 var logo_hover = 1;
 class LogoItem{
 	constructor(name,pos,size,start,stop){

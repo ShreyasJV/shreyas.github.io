@@ -12,8 +12,7 @@ var prod = false;
 
 function preload() {
 	mainFont = loadFont(media_prefix+"AshkinsonBold_003.ttf");
-	icon_shreyas = loadImage(media_prefix + "icon_shreyas.png");
-	//logoImg = loadImage(media_prefix + "icon_shreyas.png");
+	logoImg = loadImage(media_prefix + "icon_shreyas.png");
 }
 
 
@@ -42,11 +41,8 @@ function setup() {
 	preview_os = new Offset(createVector(0,0));
 	
 	logo_shapes = [];
-	logo_shapes.push(new LogoItem('icon_shreyas',[0,0],px*4,0,1));
-	//logo_shapes.push(new LogoItem('pentb',[0,0],px,0.5,1.1));
-	//logo_shapes.push(new LogoItem('pent',[0,0],px,0.5,1.1));
-	//logo_shapes.push(new LogoItem('tri1',[0,0],px,0,0.6));
-	//logo_shapes.push(new LogoItem('tri2',[0,0],px,1.1,1.6));
+	// Use a simple image-based logo item
+	logo_shapes.push(new ImageLogoItem(logoImg, [0, 0], px*2));
 	
 	logo_words = [];
 	let wordX = px * 0.2;   // shifted left
