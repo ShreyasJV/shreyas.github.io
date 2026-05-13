@@ -60,14 +60,14 @@ function setup() {
 	let wordX = px * 0.2;   // shifted left
 	let baseY = 0;          // common baseline
 	let wordSize = px * 0.75;
-	logo_words.push(new LogoItem('Shreyas', [wordX, baseY - px*0.8], wordSize, 0, 0.6));
-	logo_words.push(new LogoItem('Jekki', [wordX, baseY], wordSize, 0, 0.6));
-	logo_words.push(new LogoItem('Venkateshwarulu', [wordX, baseY + px*0.8], wordSize, 0, 0.6));
+	logo_words.push(new LogoItem('Shreyas', [wordX, baseY + 2*px*0.8], wordSize, 0, 0.6));
+	logo_words.push(new LogoItem('Jekki', [wordX, baseY + px*0.8], wordSize, 0, 0.6));
+	logo_words.push(new LogoItem('Venkateshwarulu', [wordX, baseY], wordSize, 0, 0.6));
 	
 
 	
 	pages = [];
-	pages.push(new Page("about",'Electric','https://shreyasjv.github.io/'));
+	pages.push(new Page("about me",'Electric','https://shreyasjv.github.io/'));
 	pages.push(new Page('Complex Primes','Sunset','https://thegraycuber.github.io/quadratic.html'));
 	pages.push(new Page('about','Forest','https://shreyasjv.github.io/'));
 	// pages.push(new Page("Rubik's Cube Calculator",'Forest','https://thegraycuber.github.io/cubecalculator.html'));
