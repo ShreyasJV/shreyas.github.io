@@ -1,6 +1,7 @@
 var palette, icons, pages, logo_shapes, logo_words, asteroids, icon_a;
 var logo_os, home_os, preview_os;
 var px, px2, corner_ang, mobile;
+var logoImg; // <-- ADD THIS
 var pg = -1;
 var media_prefix = 'media/';
 
@@ -11,7 +12,9 @@ var prod = false;
 
 function preload() {
 	mainFont = loadFont(media_prefix+"AshkinsonBold_003.ttf");
-}//
+
+	logoImg = loadImage(media_prefix + "icon_shreyas.png");
+}
 
 
 function setup() {
@@ -39,11 +42,11 @@ function setup() {
 	preview_os = new Offset(createVector(0,0));
 	
 	
-	logo_shapes = [];
-	logo_shapes.push(new LogoItem('pentb',[0,0],px,0.5,1.1));
-	logo_shapes.push(new LogoItem('pent',[0,0],px,0.5,1.1));
-	logo_shapes.push(new LogoItem('tri1',[0,0],px,0,0.6));
-	logo_shapes.push(new LogoItem('tri2',[0,0],px,1.1,1.6));
+	//logo_shapes = [];
+	//logo_shapes.push(new LogoItem('pentb',[0,0],px,0.5,1.1));
+	//logo_shapes.push(new LogoItem('pent',[0,0],px,0.5,1.1));
+	//logo_shapes.push(new LogoItem('tri1',[0,0],px,0,0.6));
+	//logo_shapes.push(new LogoItem('tri2',[0,0],px,1.1,1.6));
 	
 	logo_words = [];
 	logo_words.push(new LogoItem('Shreyas',[px*0.5,-px*1.8],px*0.6,0,0.6));
@@ -72,7 +75,7 @@ function setup() {
 		icon_maker.push([[0,0],px*1.2,loadImage(media_prefix+"icon_"+icon_paths[ic]+".png"),pages[ic].title]);
 	}
 
-	icon_maker.push([[-1.3*px,px],px*0.9,loadImage(media_prefix+'personsal_email_icon.png'),'shreyas1302@gmail.com','_blank']);
+	icon_maker.push([[-1.3*px,px],px*0.9,loadImage(media_prefix+'personal_email_icon.png'),'shreyas1302@gmail.com','_blank']);
 	icon_maker.push([[1.5*px,px],px*0.9,loadImage(media_prefix+'icon_github.png'),'https://github.com/ShreyasJV','_blank']);
 	icon_maker.push([[0.1*px,px],px*0.9,loadImage(media_prefix+'icon_linkedin'),'https://www.linkedin.com/in/shreyas-jv','_blank']);
 	icon_maker.push([[-1.3*px,px],px*0.9,loadImage(media_prefix+'icon_mail.png'),'s.jekkivenkateshwarulu@se24.qmul.ac.uk','_blank']);
