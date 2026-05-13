@@ -89,6 +89,8 @@ function draw() {
 			hexponentDraw();
 		} else if (pages[pg].title == "Fastest Numbers") {
 			fastestDraw();
+		} else if (pages[pg].title == "about me"){
+		aboutmePrep();
 		}
 		pop();
 	}
