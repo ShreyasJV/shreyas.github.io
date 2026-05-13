@@ -64,7 +64,7 @@ function setup() {
 	pages.push(new Page('About Me','Forest','https://shreyasjv.github.io/'));//about me icon
 	// pages.push(new Page("Rubik's Cube Calculator",'Forest','https://thegraycuber.github.io/cubecalculator.html'));
 	// pages.push(new Page('Complex Grapher','Electric','https://thegraycuber.github.io/grapher.html'));
-	pages.push(new Page('Hypercomplex Grapher','Electric','https://thegraycuber.github.io/hypercomplex_grapher.html'));//awards icon
+	pages.push(new Page('Awards and Activities','Electric','https://thegraycuber.github.io/hypercomplex_grapher.html'));//awards icon
 	pages.push(new Page('Education','Dark','https://thegraycuber.github.io/fast_numbers.html'));//education icon
 	pages.push(new Page('Hexponents!','Sunset','https://thegraycuber.github.io/hexponents.html'));//hexponents icon
 	
