@@ -67,14 +67,15 @@ function setup() {
 	icon_rad = px*6.5;
 	icons = [];
 	icon_maker = [];
-	let icon_paths = ['cursed','gaussian','group','hyper','fastest','hexponent'];
+	let icon_paths = ['research','projects','about','awards','education','cursed'];
 	for (let ic = 0; ic < pages.length; ic++){
 		icon_maker.push([[0,0],px*1.2,loadImage(media_prefix+"icon_"+icon_paths[ic]+".png"),pages[ic].title]);
 	}
-	
-	icon_maker.push([[1.5*px,px],px*0.9,loadImage(media_prefix+'icon_kofi.png'),'https://ko-fi.com/thegraycuber','_blank']);
-	icon_maker.push([[0.1*px,px],px*0.9,loadImage(media_prefix+'icon_openprocessing.png'),'https://openprocessing.org/user/448907','_blank']);
-	icon_maker.push([[-1.3*px,px],px*0.9,loadImage(media_prefix+'icon_youtube.png'),'https://www.youtube.com/@TheGrayCuber','_blank']);
+
+	icon_maker.push([[-1.3*px,px],px*0.9,loadImage(media_prefix+'personsal_email_icon.png'),'shreyas1302@gmail.com','_blank']);
+	icon_maker.push([[1.5*px,px],px*0.9,loadImage(media_prefix+'icon_github.png'),'https://github.com/ShreyasJV','_blank']);
+	icon_maker.push([[0.1*px,px],px*0.9,loadImage(media_prefix+'icon_linkedin'),'https://www.linkedin.com/in/shreyas-jv','_blank']);
+	icon_maker.push([[-1.3*px,px],px*0.9,loadImage(media_prefix+'icon_mail.png'),'s.jekkivenkateshwarulu@se24.qmul.ac.uk','_blank']);
 	//icon_maker.push([[0.6*px,px],px*0.8,loadImage('icon_github1.png'),'https://github.com/thegraycuber','_blank']);
 	
 	for (let im of icon_maker){
