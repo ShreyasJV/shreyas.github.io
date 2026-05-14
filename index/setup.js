@@ -48,7 +48,7 @@ function setup() {
 	let wordX = px * -1;   // shifted left
 	let baseY = 0;          // common baseline
 	let wordSize = px * 0.75;
-	logo_words.push(new LogoItem('Shreyas', [wordX, baseY - 2*px*0.8], wordSize, 0, 0.6));
+	logo_words.push(new LogoItem('Shreya', [wordX, baseY - 2*px*0.8], wordSize, 0, 0.6));
 	logo_words.push(new LogoItem('Jekki', [wordX, baseY - px*0.8], wordSize, 0, 0.6));
 	logo_words.push(new LogoItem('Venkateshwarulu', [wordX, baseY], wordSize, 0, 0.6));
 	
@@ -78,7 +78,7 @@ function setup() {
 	let spacing = 1.2 * px;
 	let iconSize = px * 0.9;
 	
-	icon_maker.push([[startX + 0 * spacing, y], iconSize, loadImage(media_prefix + 'personal_email_icon.png'), 'mailto:shreyas1302@gmail.com', '_blank']);
+	icon_maker.push([[startX + 0 * spacing, y], iconSize * 0.6, loadImage(media_prefix + 'personal_email_icon.png'), 'mailto:shreyas1302@gmail.com', '_blank']);
 	icon_maker.push([[startX + 1 * spacing, y], iconSize, loadImage(media_prefix + 'icon_github.png'), 'https://github.com/ShreyasJV', '_blank']);
 	icon_maker.push([[startX + 2 * spacing, y], [iconSize * 1.4, iconSize * 0.8], loadImage(media_prefix + 'icon_linkedin.png'), 'https://www.linkedin.com/in/shreyas-jv', '_blank']);
 	icon_maker.push([[startX + 3 * spacing, y], iconSize, loadImage(media_prefix + 'icon_mail.png'), 'mailto:s.jekkivenkateshwarulu@se24.qmul.ac.uk', '_blank']);
