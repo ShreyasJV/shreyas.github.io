@@ -61,7 +61,7 @@ function draw() {
 		let rect_wid = textWidth(pages[pg].title)+px;
 		textSize(px * 0.5);
 		fill(palette[0].medium);
-		text('click to visit this page', 0, title_mult*(height*0.5 - px*1.8));
+		//text('click to visit this page', 0, title_mult*(height*0.5 - px*1.8));
 		
 		// translate(0,0,-2);// 3D
 		// fill(palette[0].back); //3D
@@ -150,10 +150,18 @@ function draw() {
 		l_shape.display();
 	}
 	pop();
+	
+	if (page_mode == 'home') {
+		drawAttribution();
+	}
 }
 
 
 function touchStarted(){
+	
+	if (page_mode == 'home' && checkAttributionClick(mouseX, mouseY)){
+		return;
+	}
 	
 	if (logo_shapes[0].check(true)){
 		if (page_mode == 'home'){
@@ -225,5 +233,13 @@ function prep_preview(){
 	}
 	else if (pages[pg].title == "About Me"){
 		aboutmePrep();
+	}
+}
+
+function mouseWheel(event) {
+	// Scroll only on About Me page
+	if (page_mode == 'preview' && pages[pg].title == "About Me") {
+		handleAboutmeScroll(event.delta);
+		return false; // Prevent default scrolling
 	}
 }

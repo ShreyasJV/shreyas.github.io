@@ -42,10 +42,10 @@ function setup() {
 	
 	logo_shapes = [];
 	// Use a simple image-based logo item
-	logo_shapes.push(new ImageLogoItem(logoImg, [0, 0], px*2));
+	logo_shapes.push(new ImageLogoItem(logoImg, [-px*1.2, 0.3*px], px*2.2));
 	
 	logo_words = [];
-	let wordX = px * 0.2;   // shifted left
+	let wordX = px * -1;   // shifted left
 	let baseY = 0;          // common baseline
 	let wordSize = px * 0.75;
 	logo_words.push(new LogoItem('Shreyas', [wordX, baseY - 2*px*0.8], wordSize, 0, 0.6));
@@ -55,14 +55,14 @@ function setup() {
 
 	
 	pages = [];
-	pages.push(new Page('Research Experience','Electric','https://shreyasjv.github.io/'));//research icon
-	pages.push(new Page('Projects','Sunset','https://thegraycuber.github.io/quadratic.html'));//projects icon
-	pages.push(new Page('About Me','Forest','https://shreyasjv.github.io/'));//about me icon
+	pages.push(new Page('Research Experience','Electric',''));//research icon
+	pages.push(new Page('Projects','Sunset',''));//projects icon
+	pages.push(new Page('About Me','Forest',''));//about me icon
 	// pages.push(new Page("Rubik's Cube Calculator",'Forest','https://thegraycuber.github.io/cubecalculator.html'));
 	// pages.push(new Page('Complex Grapher','Electric','https://thegraycuber.github.io/grapher.html'));
-	pages.push(new Page('Awards and Activities','Electric','https://thegraycuber.github.io/hypercomplex_grapher.html'));//awards icon
-	pages.push(new Page('Education','Dark','https://thegraycuber.github.io/fast_numbers.html'));//education icon
-	pages.push(new Page('Hexponents!','Sunset','https://thegraycuber.github.io/hexponents.html'));//hexponents icon
+	pages.push(new Page('Awards and Activities','Electric',''));//awards icon
+	pages.push(new Page('Education','Dark',''));//education icon
+	pages.push(new Page('Hexponents!','Sunset',''));//hexponents icon
 	
 	
 	icon_rad = px*6.5;
@@ -80,7 +80,7 @@ function setup() {
 	
 	icon_maker.push([[startX + 0 * spacing, y], iconSize, loadImage(media_prefix + 'personal_email_icon.png'), 'mailto:shreyas1302@gmail.com', '_blank']);
 	icon_maker.push([[startX + 1 * spacing, y], iconSize, loadImage(media_prefix + 'icon_github.png'), 'https://github.com/ShreyasJV', '_blank']);
-	icon_maker.push([[startX + 2 * spacing, y], iconSize, loadImage(media_prefix + 'icon_linkedin.png'), 'https://www.linkedin.com/in/shreyas-jv', '_blank']);
+	icon_maker.push([[startX + 2 * spacing, y], [iconSize * 1.4, iconSize * 0.8], loadImage(media_prefix + 'icon_linkedin.png'), 'https://www.linkedin.com/in/shreyas-jv', '_blank']);
 	icon_maker.push([[startX + 3 * spacing, y], iconSize, loadImage(media_prefix + 'icon_mail.png'), 'mailto:s.jekkivenkateshwarulu@se24.qmul.ac.uk', '_blank']);
 	
 	for (let im of icon_maker){
@@ -101,4 +101,35 @@ function setup() {
 	asteroids = [];
 	last_frame = Date.now();
 	
+}
+
+function drawAttribution() {
+	push();
+	translate(-origin.x, -origin.y);
+	textSize(px * 0.2);
+	textStyle(ITALIC);
+	textAlign(CENTER);
+	
+	// Draw "Inspired by " in white
+	fill(255, 255, 255);
+	text("Inspired by ", width / 2 - px * 0.6, height - 30);
+	
+	// Draw "TheGrayCuber" in cyan/light blue
+	fill(100, 200, 255);
+	text("TheGrayCuber", width / 2 + px * 0.65, height - 30);
+	
+	pop();
+}
+
+function checkAttributionClick(x, y) {
+	// Check if click is near the attribution text (bottom center)
+	let textY = height - 30;
+	let textX = width / 2;
+	let clickRadius = px * 2; // clickable area around text
+	
+	if (dist(x, y, textX, textY) < clickRadius) {
+		window.open('https://thegraycuber.com', '_blank');
+		return true;
+	}
+	return false;
 }

@@ -2,7 +2,13 @@
 class Icon{
 	constructor(pos,size,img_path,link,anchor = '') {
 		this.pos = createVector(pos[0],pos[1]);
-		this.size = size;
+		if (Array.isArray(size)) {
+			this.width = size[0];
+			this.height = size[1];
+		} else {
+			this.width = size;
+			this.height = size;
+		}
 		this.hover = 1;
 		this.anchor = anchor;
 		this.link = link;
@@ -13,7 +19,7 @@ class Icon{
 	
 	display(){
 		if (this.inactive){return;}
-		image(this.img,this.pos.x,this.pos.y,this.size*this.hover,this.size*this.hover);
+		image(this.img,this.pos.x,this.pos.y,this.width*this.hover,this.height*this.hover);
 	}
 	
 	make_button(){
@@ -28,13 +34,13 @@ class Icon{
 	update_button(){
 		if (this.anchor.length == 0){return;}
 		this.button.style("background-color", "#00000000");
-		this.button.size(this.size, this.size);
-		this.button.position(width/2+this.pos.x+home_os.pos.x-this.size/2,height/2+this.pos.y+home_os.pos.y-this.size/2);
+		this.button.size(this.width, this.height);
+		this.button.position(width/2+this.pos.x+home_os.pos.x-this.width/2,height/2+this.pos.y+home_os.pos.y-this.height/2);
 	}
 	
 	check(clicked = false){
 		let mouseHome = createVector(mouseX-width/2-home_os.pos.x,mouseY-height/2-home_os.pos.y);
-		if(mouseHome.dist(this.pos) < this.size*0.6){
+		if(mouseHome.dist(this.pos) < max(this.width, this.height)*0.6){
 			if(clicked){
 				return true;
 			} 
