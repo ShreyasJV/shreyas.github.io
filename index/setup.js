@@ -45,7 +45,7 @@ function setup() {
 	logo_shapes.push(new ImageLogoItem(logoImg, [-px*1.2, 0.3*px], px*2.2));
 	
 	logo_words = [];
-	let wordX = px * -1;   // shifted left
+	let wordX = px * ~-1.5;   // shifted left
 	let baseY = 0;          // common baseline
 	let wordSize = px * 0.75;
 	logo_words.push(new LogoItem('Shreya', [wordX, baseY - 2*px*0.8], wordSize, 0, 0.6));
