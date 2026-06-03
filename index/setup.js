@@ -45,10 +45,10 @@ function setup() {
 	logo_shapes.push(new ImageLogoItem(logoImg, [-px*1.2, 0.3*px], px*2.2));
 	
 	logo_words = [];
-	let wordX = px * ~-1.5;   // shifted left
+	let wordX = px * ~0.5;   // shifted left
 	let baseY = 0;          // common baseline
 	let wordSize = px * 0.75;
-	logo_words.push(new LogoItem('Shreya', [wordX, baseY - 2*px*0.8], wordSize, 0, 0.6));
+	logo_words.push(new LogoItem('Shreyas', [wordX, baseY - 2*px*0.8], wordSize, 0, 0.6));
 	logo_words.push(new LogoItem('Jekki', [wordX, baseY - px*0.8], wordSize, 0, 0.6));
 	logo_words.push(new LogoItem('Venkateshwarulu', [wordX, baseY], wordSize, 0, 0.6));
 	
@@ -70,7 +70,13 @@ function setup() {
 	icon_maker = [];
 	let icon_paths = ['research','projects','about','awards','education','cursed'];
 	for (let ic = 0; ic < pages.length; ic++){
-		icon_maker.push([[0,0],px*1.2,loadImage(media_prefix+"icon_"+icon_paths[ic]+".png"),pages[ic].title]);
+		let icon_size = px * 1.2;
+		if (icon_paths[ic] == 'projects') {
+			icon_size = [px * 2.5, px * 1.15];
+		} else if (icon_paths[ic] == 'education') {
+			icon_size = [px * 2, px * 1.1];
+		}
+		icon_maker.push([[0,0],icon_size,loadImage(media_prefix+"icon_"+icon_paths[ic]+".png"),pages[ic].title]);
 	}
 
 	let startX = -1.8 * px;
@@ -82,6 +88,7 @@ function setup() {
 	icon_maker.push([[startX + 1 * spacing, y], iconSize, loadImage(media_prefix + 'icon_github.png'), 'https://github.com/ShreyasJV', '_blank']);
 	icon_maker.push([[startX + 2 * spacing, y], [iconSize * 1.4, iconSize * 0.8], loadImage(media_prefix + 'icon_linkedin.png'), 'https://www.linkedin.com/in/shreyas-jv', '_blank']);
 	icon_maker.push([[startX + 3 * spacing, y], iconSize, loadImage(media_prefix + 'icon_mail.png'), 'mailto:s.jekkivenkateshwarulu@se24.qmul.ac.uk', '_blank']);
+	icon_maker.push([[startX + 4 * spacing, y], iconSize, loadImage(media_prefix + 'icon_spectacles.png'), 'https://shreyasjv.github.io', '_blank']);	
 	
 	for (let im of icon_maker){
 		icons.push(new Icon(im[0], im[1], im[2], im[3], im[4]));
