@@ -1,69 +1,67 @@
-let aboutmeCarouselOffset = 0;
-let aboutmeCarouselTarget = 0;
-let aboutmeNameBoxes = [];
-let aboutmeCardBoxes = [];
+let awardsCarouselOffset = 0;
+let awardsCarouselTarget = 0;
+let awardsNameBoxes = [];
+let awardsCardBoxes = [];
 
-const ABOUTME_CARDS = [
-	{
-		id: 'bio',
-		title: "Who Am I?",
-		//subtitle: null,
-		//url: 'https://shreyasjv.github.io',
-		body: [
-			'High-energy theoretical physicist currently undertaking a year-long research project under Dr. Congkao Wen',
-            'at Queen Mary University of London.',
-			'',
-			'I am from Bangalore, India, and grew up in Bangalore, Chennai, Delhi, and Hyderabad in that order.',
-			'',
-			'I completed my MPhys at the University of St Andrews, Scotland. During my dissertation, I worked with',
-			'Dr. Bernd Braunecker in the field of open quantum systems on the project titled:',
-			'',
-			'"Reducing the Lindblad equation to evolution under a non-Hermitian Hamiltonian via a Schrieffer-Wolff',
-            'transformation."',
-			'',
-			'Here is my CV'
-		]
-	},
-	{
-		id: 'contact',
-		title: 'Contact',
-		body: [
-			'shreyas1302 {at} gmail {dot} com',
-			'',
-			's.jekkivenkateshwarulu {at} se24 {dot} qmul {dot} ac {dot} uk',
-			'',
-			'Please use the above only for work-related purposes.'
-		]
-	},
-    {
-		id: 'research_interests',
-		title: 'Research Interests',
-		body: [
-			'I am interested in high-energy physics (HEP). I have worked in open quantum systems, condensed matter',
-            'physics, and machine learning, and would like to apply these tools within high-energy theory.',
-            '',
-            'Some keywords that broadly interest me include:',
-            '',
-            'emergent gravity, fuzzballs, quantum information in quantum gravity (QIQG), quantum field theory',
-            'in curved spacetime, open quantum systems, holography, superstring theory, superstring field',
-            'theory, M-theory, supersymmetry, swampland, dark energy, wormholes, AI .',
-		]
-	},
-    {
-		id: 'interests',
-		title: 'Interests',
-		body: [
-            'I enjoy origami, reading, writing, walking, running, going to the gym, and cooking in my breaks.',
-            '',
-            'Outside of work, I enjoy watching TV, film, and theatre; listening to music; and climbing, bouldering, hiking,',
-            'travelling, and debating.',
-            '',
-            'Finally, I like dabbling in a variety of different ideas from screenplays, novels, technological ideas,',
-            'entrepreneurship, social work, ai etc and would love to discuss them. I\'d like to take up woodworking,',
-            'pottery, and dancing in the future — feel free to reach out if this interests you as well. I would also',
-            'like to return to futsal/football.'
-		]
-	}
+const awards_CARDS = [
+{
+    id: '2024',
+    title: '2024',
+    body: [
+        'Dean\'s List 2023/24, University of St Andrews'
+    ]
+},
+{
+    id: '2023',
+    title: '2023',
+    body: [
+        'PLANCKS-UK',
+        'Led team "4ier Trans4ms"',
+        'Top 10 nationally (50+ teams)',
+        '2nd place among Scottish universities',
+        '',
+        'St Andrews Research Internship Scheme (StARIS), University of St Andrews',
+        '',
+        'Student Staff-Council Vacation Award, University of St Andrews',
+    ]
+},
+{
+    id: '2022',
+    title: '2022',
+    body: [
+        'Physics Trust Award, Institute of Physics (IOP), UK'
+    ]
+},
+{
+    id: '2021',
+    title: '2021',
+    body: [
+        'Dean\'s List 2020/21, University of St Andrews'
+    ]
+},
+{
+    id: '2020',
+    title: '2020',
+    body: [
+        'Global Education Merit Scholarship, University of St Andrews'
+    ]
+},
+{
+    id: '2018/19',
+    title: '2018-2019',
+    body: [
+        'Only student to achieve',
+        '100/100 in Mathematics, Hyderabad Public School, Begumpet',
+        '',
+        'Several medals in coding, science olympiads, quizzes, and football',
+        '',
+        'All India Rank 6, Techkriti Open School Championship, IIT Kanpur',
+        '',
+        'Fundraising initiative for village prosthetics',
+        'Raised $430 USD',
+        '(160% funded)',
+    ]
+}
 ];
 
 function drawLink(label, x, y, url, options = {}) {
@@ -85,7 +83,7 @@ function drawLink(label, x, y, url, options = {}) {
     // measure hitbox
     const w = textWidth(label);
 
-    aboutmeNameBoxes.push({
+    awardsNameBoxes.push({
         x: x - w / 2 - hitpadX,
         y: y - hitpadY,
         w: w + hitpadX * 2,
@@ -94,14 +92,14 @@ function drawLink(label, x, y, url, options = {}) {
     });
 }
 
-function aboutmePrep() {
-	aboutmeCarouselOffset = 0;
-	aboutmeCarouselTarget = 0;
-	aboutmeNameBoxes = [];
-	aboutmeCardBoxes = [];
+function awardsPrep() {
+	awardsCarouselOffset = 0;
+	awardsCarouselTarget = 0;
+	awardsNameBoxes = [];
+	awardsCardBoxes = [];
 }
 
-function aboutmeDraw() {
+function awardsDraw() {
 	push();
 
     textAlign(CENTER, CENTER);
@@ -122,27 +120,27 @@ function aboutmeDraw() {
 	const bodySize = px * 0.30;
 	const bodyLeading = bodySize * 1.42;
 	const radius = px * 0.4;
-	const aboutMeSubtitle = (typeof pages !== 'undefined' && pages[2] && pages[2].subtitle) ? pages[2].subtitle : '(click for more information)';
+	const awardsSubtitle = (typeof pages !== 'undefined' && pages[2] && pages[2].subtitle) ? pages[2].subtitle : '(click for more information)';
 
-	aboutmeCarouselOffset += (aboutmeCarouselTarget - aboutmeCarouselOffset) * 0.18;
-	if (abs(aboutmeCarouselTarget - aboutmeCarouselOffset) < 0.0005) {
-		aboutmeCarouselOffset = aboutmeCarouselTarget;
+	awardsCarouselOffset += (awardsCarouselTarget - awardsCarouselOffset) * 0.18;
+	if (abs(awardsCarouselTarget - awardsCarouselOffset) < 0.0005) {
+		awardsCarouselOffset = awardsCarouselTarget;
 	}
 
-	aboutmeNameBoxes = [];
-	aboutmeCardBoxes = [];
+	awardsNameBoxes = [];
+	awardsCardBoxes = [];
 
-	const cardLayouts = ABOUTME_CARDS.map(card => measureAboutmeCard(card, padding, titleSize, bodySize, bodyLeading));
+	const cardLayouts = awards_CARDS.map(card => measureawardsCard(card, padding, titleSize, bodySize, bodyLeading));
 
-	const drawOrder = ABOUTME_CARDS.map((card, index) => ({
+	const drawOrder = awards_CARDS.map((card, index) => ({
 		card,
 		index,
-		distance: abs(index - aboutmeCarouselOffset)
+		distance: abs(index - awardsCarouselOffset)
 	})).sort((a, b) => b.distance - a.distance);
 
 	for (let item of drawOrder) {
 		const layout = cardLayouts[item.index];
-		const cardX = (item.index - aboutmeCarouselOffset) * (layout.width * 0.82);
+		const cardX = (item.index - awardsCarouselOffset) * (layout.width * 0.82);
 		const scaleAmount = 1 - min(item.distance * 0.08, 0.12);
 		const opacity = 255 - min(item.distance * 85, 85);
 
@@ -162,7 +160,7 @@ function aboutmeDraw() {
 		const innerW = layout.width - padding * 2;
 		const innerH = layout.height - padding * 1.7;
 
-		aboutmeCardBoxes.push({
+		awardsCardBoxes.push({
 			id: item.card.id,
 			x: cardX - layout.width / 2,
 			y: -layout.height / 2,
@@ -187,7 +185,7 @@ function aboutmeDraw() {
 		/*if (item.card.id === 'bio') {
 			textSize(subtitleSize);
 			fill(red(palette[0].front), green(palette[0].front), blue(palette[0].front), opacity * 0.78);
-			text(aboutMeSubtitle, innerX, innerY + titleSize * 1.05);
+			text(awardsSubtitle, innerX, innerY + titleSize * 1.05);
 			fill(red(palette[0].front), green(palette[0].front), blue(palette[0].front), opacity);
 		}*/
 
@@ -239,7 +237,7 @@ function aboutmeDraw() {
 	pop();
 }
 
-function measureAboutmeCard(card, padding, titleSize, bodySize, bodyLeading) {
+function measureawardsCard(card, padding, titleSize, bodySize, bodyLeading) {
 	textSize(titleSize);
 	let widestLine = textWidth(card.title);
 	let lineCount = 0;
@@ -253,7 +251,7 @@ function measureAboutmeCard(card, padding, titleSize, bodySize, bodyLeading) {
 	}
 
 	const contentWidth = widestLine + padding * 2;
-	const contentHeight = titleSize * 1.18 + bodySize * 0.18 + lineCount * bodyLeading + padding * 0.95;
+	const contentHeight = titleSize * 1.18 + bodySize * 0.18 + lineCount * bodyLeading + padding * 2.5;
 
 	if (card.id === 'contact') {
 		return {
@@ -263,8 +261,9 @@ function measureAboutmeCard(card, padding, titleSize, bodySize, bodyLeading) {
 	}
 
 	return {
-		width: constrain(contentWidth, 440, 760),
-		height: constrain(contentHeight, 250, 580)
+		width: contentWidth,
+		//height: constrain(contentHeight, 400, 580)
+        height: contentHeight
 	};
 }
 
@@ -287,7 +286,7 @@ function drawHighlightedLine(line, x, y, phrase, url, bodySize, opacity) {
 
 	fill('#68C8FF');
 	text(phrase, phraseX, y);
-	aboutmeNameBoxes.push({ x: phraseX, y: y, w: phraseW, h: hitHeight, url: url });
+	awardsNameBoxes.push({ x: phraseX, y: y, w: phraseW, h: hitHeight, url: url });
 
 	fill(red(palette[0].front), green(palette[0].front), blue(palette[0].front), opacity);
 	text(after, phraseX + phraseW, y);
@@ -296,20 +295,20 @@ function drawHighlightedLine(line, x, y, phrase, url, bodySize, opacity) {
 function mouseReleased() {
 	try {
 		if (typeof pages === 'undefined' || typeof pg === 'undefined') return;
-		if (!(pages[pg] && pages[pg].title === 'About Me')) return;
-		if ((!aboutmeNameBoxes || aboutmeNameBoxes.length === 0) && (!aboutmeCardBoxes || aboutmeCardBoxes.length === 0)) return;
+		if (!(pages[pg] && pages[pg].title === 'awards')) return;
+		if ((!awardsNameBoxes || awardsNameBoxes.length === 0) && (!awardsCardBoxes || awardsCardBoxes.length === 0)) return;
 
 		const mx = mouseX - origin.x;
 		const my = mouseY - origin.y;
 
-		for (let box of aboutmeNameBoxes) {
+		for (let box of awardsNameBoxes) {
 			if (mx >= box.x && mx <= box.x + box.w && my >= box.y && my <= box.y + box.h) {
 				window.open(box.url, '_blank');
 				return;
 			}
 		}
 
-		for (let box of aboutmeCardBoxes) {
+		for (let box of awardsCardBoxes) {
 			if (box.id === 'bio' && box.url && mx >= box.x && mx <= box.x + box.w && my >= box.y && my <= box.y + box.h) {
 				window.open(box.url, '_blank');
 				return;
@@ -320,6 +319,6 @@ function mouseReleased() {
 	}
 }
 
-function handleAboutmeScroll(deltaY) {
-	aboutmeCarouselTarget = constrain(aboutmeCarouselTarget + deltaY / 900, 0, ABOUTME_CARDS.length - 1);
+function handleawardsScroll(deltaY) {
+	awardsCarouselTarget = constrain(awardsCarouselTarget + deltaY / 900, 0, awards_CARDS.length - 1);
 }

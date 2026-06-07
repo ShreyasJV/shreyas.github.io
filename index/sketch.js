@@ -92,6 +92,21 @@ function draw() {
 		} else if (pages[pg].title == "About Me"){
 		    aboutmeDraw();
 		}
+		else if (pages[pg].title == "Education"){
+		    educationDraw();
+		}
+		else if (pages[pg].title == "Awards and Activities"){
+		    awardsDraw();
+		}
+		else if (pages[pg].title == "Projects"){
+		    projectsDraw();
+		}
+		else if (pages[pg].title == "Research Experience"){
+		    researchDraw();
+		}
+		else if (pages[pg].title == "More"){
+		    moreDraw();
+		}
 		pop();
 	}
 	
@@ -234,12 +249,53 @@ function prep_preview(){
 	else if (pages[pg].title == "About Me"){
 		aboutmePrep();
 	}
+	else if (pages[pg].title == "Education"){
+		educationPrep();
+	}
+	else if (pages[pg].title == "Awards and Activities"){
+		awardsPrep();
+	}
+	else if (pages[pg].title == "Projects"){
+		projectsPrep();
+	}
+	else if (pages[pg].title == "Research Experience"){
+		researchPrep();
+	}
+	else if (pages[pg].title == "More"){
+		morePrep();
+	}
 }
 
 function mouseWheel(event) {
 	// Scroll only on About Me page
 	if (page_mode == 'preview' && pages[pg].title == "About Me") {
-		handleAboutmeScroll(event.delta);
+		let carouselDelta = Math.abs(event.deltaX) > Math.abs(event.delta) ? event.deltaX : event.delta;
+		handleAboutmeScroll(carouselDelta);
+		return false; // Prevent default scrolling
+	}
+	if (page_mode == 'preview' && pages[pg].title == "Education") {
+		let carouselDelta = Math.abs(event.deltaX) > Math.abs(event.delta) ? event.deltaX : event.delta;
+		handleeducationScroll(carouselDelta);
+		return false; // Prevent default scrolling
+	}
+	if (page_mode == 'preview' && pages[pg].title == "Awards and Activities") {
+		let carouselDelta = Math.abs(event.deltaX) > Math.abs(event.delta) ? event.deltaX : event.delta;
+		handleawardsScroll(carouselDelta);
+		return false; // Prevent default scrolling
+	}
+	if (page_mode == 'preview' && pages[pg].title == "Projects") {
+		let carouselDelta = Math.abs(event.deltaX) > Math.abs(event.delta) ? event.deltaX : event.delta;
+		handleprojectsScroll(carouselDelta);
+		return false; // Prevent default scrolling
+	}
+	if (page_mode == 'preview' && pages[pg].title == "Research Experience") {
+		let carouselDelta = Math.abs(event.deltaX) > Math.abs(event.delta) ? event.deltaX : event.delta;
+		handleresearchScroll(carouselDelta);
+		return false; // Prevent default scrolling
+	}
+	if (page_mode == 'preview' && pages[pg].title == "More") {
+		let carouselDelta = Math.abs(event.deltaX) > Math.abs(event.delta) ? event.deltaX : event.delta;
+		handlemoreScroll(carouselDelta);
 		return false; // Prevent default scrolling
 	}
 }

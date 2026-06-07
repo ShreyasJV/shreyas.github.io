@@ -1,69 +1,78 @@
-let aboutmeCarouselOffset = 0;
-let aboutmeCarouselTarget = 0;
-let aboutmeNameBoxes = [];
-let aboutmeCardBoxes = [];
+let educationCarouselOffset = 0;
+let educationCarouselTarget = 0;
+let educationNameBoxes = [];
+let educationCardBoxes = [];
 
-const ABOUTME_CARDS = [
-	{
-		id: 'bio',
-		title: "Who Am I?",
-		//subtitle: null,
-		//url: 'https://shreyasjv.github.io',
-		body: [
-			'High-energy theoretical physicist currently undertaking a year-long research project under Dr. Congkao Wen',
-            'at Queen Mary University of London.',
-			'',
-			'I am from Bangalore, India, and grew up in Bangalore, Chennai, Delhi, and Hyderabad in that order.',
-			'',
-			'I completed my MPhys at the University of St Andrews, Scotland. During my dissertation, I worked with',
-			'Dr. Bernd Braunecker in the field of open quantum systems on the project titled:',
-			'',
-			'"Reducing the Lindblad equation to evolution under a non-Hermitian Hamiltonian via a Schrieffer-Wolff',
-            'transformation."',
-			'',
-			'Here is my CV'
-		]
-	},
-	{
-		id: 'contact',
-		title: 'Contact',
-		body: [
-			'shreyas1302 {at} gmail {dot} com',
-			'',
-			's.jekkivenkateshwarulu {at} se24 {dot} qmul {dot} ac {dot} uk',
-			'',
-			'Please use the above only for work-related purposes.'
-		]
-	},
+const education_CARDS = [
+        {
+        id: 'qmul',
+        title: 'Queen Mary University of London',
+        body: [
+            'London, UK',
+            'MSc Theoretical Physics (EuroMasters)',
+            'Sep 2024 - Jun 2026',
+            '',
+            'Current average: 92%',
+            'Expected grade: Distinction',
+            '',
+            'Dissertation:',
+            'Studying Correlation functions in SuperConformal',
+            'Field Theories',
+            '',
+            'Peer-support group organizer for MSc Theoretical',
+            'Physics cohort: Organized bi-weekly presentation',
+            'sessions to help peers present their research as',
+            'a progress check.',
+            '',
+            'Supervisor: Dr. Congkao Wen'
+        ]
+    },
     {
-		id: 'research_interests',
-		title: 'Research Interests',
-		body: [
-			'I am interested in high-energy physics (HEP). I have worked in open quantum systems, condensed matter',
-            'physics, and machine learning, and would like to apply these tools within high-energy theory.',
+        id: 'standrews',
+        title: 'University of St Andrews',
+        body: [
+            'St Andrews, UK',
+            'MPhys Theoretical Physics (Hons)',
+            'Sep 2020 - Jun 2024',
             '',
-            'Some keywords that broadly interest me include:',
+            'Grade: High II.1',
             '',
-            'emergent gravity, fuzzballs, quantum information in quantum gravity (QIQG), quantum field theory',
-            'in curved spacetime, open quantum systems, holography, superstring theory, superstring field',
-            'theory, M-theory, supersymmetry, swampland, dark energy, wormholes, AI .',
-		]
-	},
+            'Dissertation:',
+            'Reducing the Lindblad equation',
+            'to evolution under a',
+            'non-Hermitian Hamiltonian via',
+            'a Schrieffer-Wolff transformation',
+            '',
+            'Supervisor: Dr. Bernd Braunecker'
+        ]
+    },
     {
-		id: 'interests',
-		title: 'Interests',
-		body: [
-            'I enjoy origami, reading, writing, walking, running, going to the gym, and cooking in my breaks.',
+        id: 'dps',
+        title: 'Delhi Public School, Bangalore East',
+        body: [
+            'Bangalore, India',
+            'Jun 2018 - Jun 2020',
             '',
-            'Outside of work, I enjoy watching TV, film, and theatre; listening to music; and climbing, bouldering, hiking,',
-            'travelling, and debating.',
+            'Physics, Chemistry, Mathematics,',
+            'Computer Science, English',
             '',
-            'Finally, I like dabbling in a variety of different ideas from screenplays, novels, technological ideas,',
-            'entrepreneurship, social work, ai etc and would love to discuss them. I\'d like to take up woodworking,',
-            'pottery, and dancing in the future — feel free to reach out if this interests you as well. I would also',
-            'like to return to futsal/football.'
-		]
-	}
+            'Board Result: 94.4%'
+        ]
+    },
+    {
+        id: 'hps',
+        title: 'The Hyderabad Public School, Begumpet',
+        body: [
+            'Hyderabad, India',
+            'Jun 2015 - Jun 2018',
+            '',
+            'English, Science, Social Studies,',
+            'Mathematics, Computer Applications,',
+            'Hindi',
+            '',
+            'Board Result: 95%'
+        ]
+    }
 ];
 
 function drawLink(label, x, y, url, options = {}) {
@@ -85,7 +94,7 @@ function drawLink(label, x, y, url, options = {}) {
     // measure hitbox
     const w = textWidth(label);
 
-    aboutmeNameBoxes.push({
+    educationNameBoxes.push({
         x: x - w / 2 - hitpadX,
         y: y - hitpadY,
         w: w + hitpadX * 2,
@@ -94,14 +103,14 @@ function drawLink(label, x, y, url, options = {}) {
     });
 }
 
-function aboutmePrep() {
-	aboutmeCarouselOffset = 0;
-	aboutmeCarouselTarget = 0;
-	aboutmeNameBoxes = [];
-	aboutmeCardBoxes = [];
+function educationPrep() {
+	educationCarouselOffset = 0;
+	educationCarouselTarget = 0;
+	educationNameBoxes = [];
+	educationCardBoxes = [];
 }
 
-function aboutmeDraw() {
+function educationDraw() {
 	push();
 
     textAlign(CENTER, CENTER);
@@ -122,27 +131,27 @@ function aboutmeDraw() {
 	const bodySize = px * 0.30;
 	const bodyLeading = bodySize * 1.42;
 	const radius = px * 0.4;
-	const aboutMeSubtitle = (typeof pages !== 'undefined' && pages[2] && pages[2].subtitle) ? pages[2].subtitle : '(click for more information)';
+	const educationSubtitle = (typeof pages !== 'undefined' && pages[2] && pages[2].subtitle) ? pages[2].subtitle : '(click for more information)';
 
-	aboutmeCarouselOffset += (aboutmeCarouselTarget - aboutmeCarouselOffset) * 0.18;
-	if (abs(aboutmeCarouselTarget - aboutmeCarouselOffset) < 0.0005) {
-		aboutmeCarouselOffset = aboutmeCarouselTarget;
+	educationCarouselOffset += (educationCarouselTarget - educationCarouselOffset) * 0.18;
+	if (abs(educationCarouselTarget - educationCarouselOffset) < 0.0005) {
+		educationCarouselOffset = educationCarouselTarget;
 	}
 
-	aboutmeNameBoxes = [];
-	aboutmeCardBoxes = [];
+	educationNameBoxes = [];
+	educationCardBoxes = [];
 
-	const cardLayouts = ABOUTME_CARDS.map(card => measureAboutmeCard(card, padding, titleSize, bodySize, bodyLeading));
+	const cardLayouts = education_CARDS.map(card => measureeducationCard(card, padding, titleSize, bodySize, bodyLeading));
 
-	const drawOrder = ABOUTME_CARDS.map((card, index) => ({
+	const drawOrder = education_CARDS.map((card, index) => ({
 		card,
 		index,
-		distance: abs(index - aboutmeCarouselOffset)
+		distance: abs(index - educationCarouselOffset)
 	})).sort((a, b) => b.distance - a.distance);
 
 	for (let item of drawOrder) {
 		const layout = cardLayouts[item.index];
-		const cardX = (item.index - aboutmeCarouselOffset) * (layout.width * 0.82);
+		const cardX = (item.index - educationCarouselOffset) * (layout.width * 0.82);
 		const scaleAmount = 1 - min(item.distance * 0.08, 0.12);
 		const opacity = 255 - min(item.distance * 85, 85);
 
@@ -162,7 +171,7 @@ function aboutmeDraw() {
 		const innerW = layout.width - padding * 2;
 		const innerH = layout.height - padding * 1.7;
 
-		aboutmeCardBoxes.push({
+		educationCardBoxes.push({
 			id: item.card.id,
 			x: cardX - layout.width / 2,
 			y: -layout.height / 2,
@@ -187,7 +196,7 @@ function aboutmeDraw() {
 		/*if (item.card.id === 'bio') {
 			textSize(subtitleSize);
 			fill(red(palette[0].front), green(palette[0].front), blue(palette[0].front), opacity * 0.78);
-			text(aboutMeSubtitle, innerX, innerY + titleSize * 1.05);
+			text(educationSubtitle, innerX, innerY + titleSize * 1.05);
 			fill(red(palette[0].front), green(palette[0].front), blue(palette[0].front), opacity);
 		}*/
 
@@ -239,7 +248,7 @@ function aboutmeDraw() {
 	pop();
 }
 
-function measureAboutmeCard(card, padding, titleSize, bodySize, bodyLeading) {
+function measureeducationCard(card, padding, titleSize, bodySize, bodyLeading) {
 	textSize(titleSize);
 	let widestLine = textWidth(card.title);
 	let lineCount = 0;
@@ -253,7 +262,7 @@ function measureAboutmeCard(card, padding, titleSize, bodySize, bodyLeading) {
 	}
 
 	const contentWidth = widestLine + padding * 2;
-	const contentHeight = titleSize * 1.18 + bodySize * 0.18 + lineCount * bodyLeading + padding * 0.95;
+	const contentHeight = titleSize * 1.18 + bodySize * 0.18 + lineCount * bodyLeading + padding * 2.5;
 
 	if (card.id === 'contact') {
 		return {
@@ -263,8 +272,9 @@ function measureAboutmeCard(card, padding, titleSize, bodySize, bodyLeading) {
 	}
 
 	return {
-		width: constrain(contentWidth, 440, 760),
-		height: constrain(contentHeight, 250, 580)
+		width: contentWidth,
+		//height: constrain(contentHeight, 400, 580)
+        height: contentHeight
 	};
 }
 
@@ -287,7 +297,7 @@ function drawHighlightedLine(line, x, y, phrase, url, bodySize, opacity) {
 
 	fill('#68C8FF');
 	text(phrase, phraseX, y);
-	aboutmeNameBoxes.push({ x: phraseX, y: y, w: phraseW, h: hitHeight, url: url });
+	educationNameBoxes.push({ x: phraseX, y: y, w: phraseW, h: hitHeight, url: url });
 
 	fill(red(palette[0].front), green(palette[0].front), blue(palette[0].front), opacity);
 	text(after, phraseX + phraseW, y);
@@ -296,20 +306,20 @@ function drawHighlightedLine(line, x, y, phrase, url, bodySize, opacity) {
 function mouseReleased() {
 	try {
 		if (typeof pages === 'undefined' || typeof pg === 'undefined') return;
-		if (!(pages[pg] && pages[pg].title === 'About Me')) return;
-		if ((!aboutmeNameBoxes || aboutmeNameBoxes.length === 0) && (!aboutmeCardBoxes || aboutmeCardBoxes.length === 0)) return;
+		if (!(pages[pg] && pages[pg].title === 'Education')) return;
+		if ((!educationNameBoxes || educationNameBoxes.length === 0) && (!educationCardBoxes || educationCardBoxes.length === 0)) return;
 
 		const mx = mouseX - origin.x;
 		const my = mouseY - origin.y;
 
-		for (let box of aboutmeNameBoxes) {
+		for (let box of educationNameBoxes) {
 			if (mx >= box.x && mx <= box.x + box.w && my >= box.y && my <= box.y + box.h) {
 				window.open(box.url, '_blank');
 				return;
 			}
 		}
 
-		for (let box of aboutmeCardBoxes) {
+		for (let box of educationCardBoxes) {
 			if (box.id === 'bio' && box.url && mx >= box.x && mx <= box.x + box.w && my >= box.y && my <= box.y + box.h) {
 				window.open(box.url, '_blank');
 				return;
@@ -320,6 +330,6 @@ function mouseReleased() {
 	}
 }
 
-function handleAboutmeScroll(deltaY) {
-	aboutmeCarouselTarget = constrain(aboutmeCarouselTarget + deltaY / 900, 0, ABOUTME_CARDS.length - 1);
+function handleeducationScroll(deltaY) {
+	educationCarouselTarget = constrain(educationCarouselTarget + deltaY / 900, 0, education_CARDS.length - 1);
 }

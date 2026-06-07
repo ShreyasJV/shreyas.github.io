@@ -1,69 +1,71 @@
-let aboutmeCarouselOffset = 0;
-let aboutmeCarouselTarget = 0;
-let aboutmeNameBoxes = [];
-let aboutmeCardBoxes = [];
+let projectsCarouselOffset = 0;
+let projectsCarouselTarget = 0;
+let projectsNameBoxes = [];
+let projectsCardBoxes = [];
 
-const ABOUTME_CARDS = [
-	{
-		id: 'bio',
-		title: "Who Am I?",
-		//subtitle: null,
-		//url: 'https://shreyasjv.github.io',
-		body: [
-			'High-energy theoretical physicist currently undertaking a year-long research project under Dr. Congkao Wen',
-            'at Queen Mary University of London.',
-			'',
-			'I am from Bangalore, India, and grew up in Bangalore, Chennai, Delhi, and Hyderabad in that order.',
-			'',
-			'I completed my MPhys at the University of St Andrews, Scotland. During my dissertation, I worked with',
-			'Dr. Bernd Braunecker in the field of open quantum systems on the project titled:',
-			'',
-			'"Reducing the Lindblad equation to evolution under a non-Hermitian Hamiltonian via a Schrieffer-Wolff',
-            'transformation."',
-			'',
-			'Here is my CV'
-		]
-	},
-	{
-		id: 'contact',
-		title: 'Contact',
-		body: [
-			'shreyas1302 {at} gmail {dot} com',
-			'',
-			's.jekkivenkateshwarulu {at} se24 {dot} qmul {dot} ac {dot} uk',
-			'',
-			'Please use the above only for work-related purposes.'
-		]
-	},
-    {
-		id: 'research_interests',
-		title: 'Research Interests',
-		body: [
-			'I am interested in high-energy physics (HEP). I have worked in open quantum systems, condensed matter',
-            'physics, and machine learning, and would like to apply these tools within high-energy theory.',
-            '',
-            'Some keywords that broadly interest me include:',
-            '',
-            'emergent gravity, fuzzballs, quantum information in quantum gravity (QIQG), quantum field theory',
-            'in curved spacetime, open quantum systems, holography, superstring theory, superstring field',
-            'theory, M-theory, supersymmetry, swampland, dark energy, wormholes, AI .',
-		]
-	},
-    {
-		id: 'interests',
-		title: 'Interests',
-		body: [
-            'I enjoy origami, reading, writing, walking, running, going to the gym, and cooking in my breaks.',
-            '',
-            'Outside of work, I enjoy watching TV, film, and theatre; listening to music; and climbing, bouldering, hiking,',
-            'travelling, and debating.',
-            '',
-            'Finally, I like dabbling in a variety of different ideas from screenplays, novels, technological ideas,',
-            'entrepreneurship, social work, ai etc and would love to discuss them. I\'d like to take up woodworking,',
-            'pottery, and dancing in the future — feel free to reach out if this interests you as well. I would also',
-            'like to return to futsal/football.'
-		]
-	}
+const projects_CARDS = [
+{
+    id: 'eclipses',
+    title: 'History and Science of Solar Eclipses',
+    subtitle: 'Research Intern',
+    location: 'Jun 2023 - Jul 2023',
+    body: [
+        'School of Mathematics funded project',
+        '',
+        'Supervisors:',
+        'Dr Deborah Kent',
+        'Dr Tom Elsden',
+        '',
+        'Worked in a team to create',
+        'a digital platform displaying',
+        'the expeditions, history, and',
+        'science of solar eclipses.',
+        '',
+        'Technologies:',
+        'WordPress, Straylight'
+    ],
+    url: 'https://eclipse-history.wp.st-andrews.ac.uk'
+},
+{
+    id: 'step',
+    title: 'Summer Teams Enterprise Programme',
+    subtitle: 'Tech Lead & Researcher',
+    location: 'May 2021 - Jun 2021',
+    body: [
+        'Mathematically Curious St Andrews project',
+        '',
+        'Supervisor:',
+        'Dr Deborah Kent',
+        '',
+        'Led technical development',
+        'and research for a digital',
+        'platform showcasing the',
+        'mathematical history of',
+        'St Andrews.',
+        '',
+        'Technologies:',
+        'WordPress, Straylight'
+    ],
+    url: 'https://maths.curious-sta.org/about-us/'
+},
+{
+    id: 'bankmanager',
+    title: 'Bank Manager',
+    subtitle: 'Personal Software Project',
+    location: 'GitHub',
+    body: [
+        'Python application',
+        '',
+        'Bank account management',
+        'and transaction system',
+        '',
+        'Implemented using Python',
+        '',
+        'Source code available',
+        'on GitHub.'
+    ],
+    url: 'https://github.com/ShreyasJV/Bank-Manager'
+}
 ];
 
 function drawLink(label, x, y, url, options = {}) {
@@ -85,7 +87,7 @@ function drawLink(label, x, y, url, options = {}) {
     // measure hitbox
     const w = textWidth(label);
 
-    aboutmeNameBoxes.push({
+    projectsNameBoxes.push({
         x: x - w / 2 - hitpadX,
         y: y - hitpadY,
         w: w + hitpadX * 2,
@@ -94,14 +96,14 @@ function drawLink(label, x, y, url, options = {}) {
     });
 }
 
-function aboutmePrep() {
-	aboutmeCarouselOffset = 0;
-	aboutmeCarouselTarget = 0;
-	aboutmeNameBoxes = [];
-	aboutmeCardBoxes = [];
+function projectsPrep() {
+	projectsCarouselOffset = 0;
+	projectsCarouselTarget = 0;
+	projectsNameBoxes = [];
+	projectsCardBoxes = [];
 }
 
-function aboutmeDraw() {
+function projectsDraw() {
 	push();
 
     textAlign(CENTER, CENTER);
@@ -122,27 +124,27 @@ function aboutmeDraw() {
 	const bodySize = px * 0.30;
 	const bodyLeading = bodySize * 1.42;
 	const radius = px * 0.4;
-	const aboutMeSubtitle = (typeof pages !== 'undefined' && pages[2] && pages[2].subtitle) ? pages[2].subtitle : '(click for more information)';
+	const projectsSubtitle = (typeof pages !== 'undefined' && pages[2] && pages[2].subtitle) ? pages[2].subtitle : '(click for more information)';
 
-	aboutmeCarouselOffset += (aboutmeCarouselTarget - aboutmeCarouselOffset) * 0.18;
-	if (abs(aboutmeCarouselTarget - aboutmeCarouselOffset) < 0.0005) {
-		aboutmeCarouselOffset = aboutmeCarouselTarget;
+	projectsCarouselOffset += (projectsCarouselTarget - projectsCarouselOffset) * 0.18;
+	if (abs(projectsCarouselTarget - projectsCarouselOffset) < 0.0005) {
+		projectsCarouselOffset = projectsCarouselTarget;
 	}
 
-	aboutmeNameBoxes = [];
-	aboutmeCardBoxes = [];
+	projectsNameBoxes = [];
+	projectsCardBoxes = [];
 
-	const cardLayouts = ABOUTME_CARDS.map(card => measureAboutmeCard(card, padding, titleSize, bodySize, bodyLeading));
+	const cardLayouts = projects_CARDS.map(card => measureprojectsCard(card, padding, titleSize, bodySize, bodyLeading));
 
-	const drawOrder = ABOUTME_CARDS.map((card, index) => ({
+	const drawOrder = projects_CARDS.map((card, index) => ({
 		card,
 		index,
-		distance: abs(index - aboutmeCarouselOffset)
+		distance: abs(index - projectsCarouselOffset)
 	})).sort((a, b) => b.distance - a.distance);
 
 	for (let item of drawOrder) {
 		const layout = cardLayouts[item.index];
-		const cardX = (item.index - aboutmeCarouselOffset) * (layout.width * 0.82);
+		const cardX = (item.index - projectsCarouselOffset) * (layout.width * 0.82);
 		const scaleAmount = 1 - min(item.distance * 0.08, 0.12);
 		const opacity = 255 - min(item.distance * 85, 85);
 
@@ -162,7 +164,7 @@ function aboutmeDraw() {
 		const innerW = layout.width - padding * 2;
 		const innerH = layout.height - padding * 1.7;
 
-		aboutmeCardBoxes.push({
+		projectsCardBoxes.push({
 			id: item.card.id,
 			x: cardX - layout.width / 2,
 			y: -layout.height / 2,
@@ -187,7 +189,7 @@ function aboutmeDraw() {
 		/*if (item.card.id === 'bio') {
 			textSize(subtitleSize);
 			fill(red(palette[0].front), green(palette[0].front), blue(palette[0].front), opacity * 0.78);
-			text(aboutMeSubtitle, innerX, innerY + titleSize * 1.05);
+			text(projectsSubtitle, innerX, innerY + titleSize * 1.05);
 			fill(red(palette[0].front), green(palette[0].front), blue(palette[0].front), opacity);
 		}*/
 
@@ -239,7 +241,7 @@ function aboutmeDraw() {
 	pop();
 }
 
-function measureAboutmeCard(card, padding, titleSize, bodySize, bodyLeading) {
+function measureprojectsCard(card, padding, titleSize, bodySize, bodyLeading) {
 	textSize(titleSize);
 	let widestLine = textWidth(card.title);
 	let lineCount = 0;
@@ -253,7 +255,7 @@ function measureAboutmeCard(card, padding, titleSize, bodySize, bodyLeading) {
 	}
 
 	const contentWidth = widestLine + padding * 2;
-	const contentHeight = titleSize * 1.18 + bodySize * 0.18 + lineCount * bodyLeading + padding * 0.95;
+	const contentHeight = titleSize * 1.18 + bodySize * 0.18 + lineCount * bodyLeading + padding * 2.5;
 
 	if (card.id === 'contact') {
 		return {
@@ -263,8 +265,9 @@ function measureAboutmeCard(card, padding, titleSize, bodySize, bodyLeading) {
 	}
 
 	return {
-		width: constrain(contentWidth, 440, 760),
-		height: constrain(contentHeight, 250, 580)
+		width: contentWidth,
+		//height: constrain(contentHeight, 400, 580)
+        height: contentHeight
 	};
 }
 
@@ -287,7 +290,7 @@ function drawHighlightedLine(line, x, y, phrase, url, bodySize, opacity) {
 
 	fill('#68C8FF');
 	text(phrase, phraseX, y);
-	aboutmeNameBoxes.push({ x: phraseX, y: y, w: phraseW, h: hitHeight, url: url });
+	projectsNameBoxes.push({ x: phraseX, y: y, w: phraseW, h: hitHeight, url: url });
 
 	fill(red(palette[0].front), green(palette[0].front), blue(palette[0].front), opacity);
 	text(after, phraseX + phraseW, y);
@@ -296,20 +299,20 @@ function drawHighlightedLine(line, x, y, phrase, url, bodySize, opacity) {
 function mouseReleased() {
 	try {
 		if (typeof pages === 'undefined' || typeof pg === 'undefined') return;
-		if (!(pages[pg] && pages[pg].title === 'About Me')) return;
-		if ((!aboutmeNameBoxes || aboutmeNameBoxes.length === 0) && (!aboutmeCardBoxes || aboutmeCardBoxes.length === 0)) return;
+		if (!(pages[pg] && pages[pg].title === 'Projects')) return;
+		if ((!projectsNameBoxes || projectsNameBoxes.length === 0) && (!projectsCardBoxes || projectsCardBoxes.length === 0)) return;
 
 		const mx = mouseX - origin.x;
 		const my = mouseY - origin.y;
 
-		for (let box of aboutmeNameBoxes) {
+		for (let box of projectsNameBoxes) {
 			if (mx >= box.x && mx <= box.x + box.w && my >= box.y && my <= box.y + box.h) {
 				window.open(box.url, '_blank');
 				return;
 			}
 		}
 
-		for (let box of aboutmeCardBoxes) {
+		for (let box of projectsCardBoxes) {
 			if (box.id === 'bio' && box.url && mx >= box.x && mx <= box.x + box.w && my >= box.y && my <= box.y + box.h) {
 				window.open(box.url, '_blank');
 				return;
@@ -320,6 +323,6 @@ function mouseReleased() {
 	}
 }
 
-function handleAboutmeScroll(deltaY) {
-	aboutmeCarouselTarget = constrain(aboutmeCarouselTarget + deltaY / 900, 0, ABOUTME_CARDS.length - 1);
+function handleprojectsScroll(deltaY) {
+	projectsCarouselTarget = constrain(projectsCarouselTarget + deltaY / 900, 0, projects_CARDS.length - 1);
 }

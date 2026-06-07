@@ -117,6 +117,26 @@ class LogoItem{
 			stroke(palette[0].back);
 			n_gon(this.pos,logo_size*1.3,0.25,5);
 			noFill();
+		} else if (this.name == 'phi') {
+			logo_size *= logo_hover;
+			push();
+			noStroke();
+			fill(palette[0].front);
+			textFont('serif');
+			textAlign(CENTER, CENTER);
+			textSize(logo_size * 0.82);
+			text('φ', this.pos.x, this.pos.y + logo_size * 0.04);
+			pop();
+		} else if (this.name == 'delta') {
+			logo_size *= logo_hover;
+			push();
+			noStroke();
+			fill(palette[0].front);
+			textFont('serif');
+			textAlign(CENTER, CENTER);
+			textSize(logo_size * 0.95);
+			text('δ', this.pos.x, this.pos.y + logo_size * 0.05);
+			pop();
 		} else {
 			
 			textSize(logo_size);

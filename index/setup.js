@@ -1,3 +1,5 @@
+//http://localhost:8001/
+
 var palette, icons, pages, logo_shapes, logo_words, asteroids, icon_a;
 var logo_os, home_os, preview_os;
 var px, px2, corner_ang, mobile;
@@ -9,6 +11,7 @@ var color_list = ['Current','Sunset','Electric','Forest','Dark'];
 //var main_list = [];
 var ticker = 0;
 var prod = false;
+var include_small_phi = true;
 
 function preload() {
 	mainFont = loadFont(media_prefix+"AshkinsonBold_003.ttf");
@@ -41,8 +44,10 @@ function setup() {
 	preview_os = new Offset(createVector(0,0));
 	
 	logo_shapes = [];
-	// Use a simple image-based logo item
-	logo_shapes.push(new ImageLogoItem(logoImg, [-px*1.2, 0.3*px], px*2.2));
+	//logo_shapes.push(new LogoItem('delta',[px * ~-0.5,px * ~1.5],px*1.5,1.1,1.1));
+	if (include_small_phi){
+		logo_shapes.push(new LogoItem('phi',[px * ~-0.5,px * ~-1.5],px*2,1.1,1.1));
+	}
 	
 	logo_words = [];
 	let wordX = px * ~0.5;   // shifted left
@@ -57,12 +62,13 @@ function setup() {
 	pages = [];
 	pages.push(new Page('Research Experience','Electric',''));//research icon
 	pages.push(new Page('Projects','Sunset',''));//projects icon
-	pages.push(new Page('About Me','Forest',''));//about me icon
+	pages.push(new Page('About Me','Forest',''))//'https://shreyasjv.github.io'));//about me icon
+	pages[2].subtitle = '(click for more information)';
 	// pages.push(new Page("Rubik's Cube Calculator",'Forest','https://thegraycuber.github.io/cubecalculator.html'));
 	// pages.push(new Page('Complex Grapher','Electric','https://thegraycuber.github.io/grapher.html'));
 	pages.push(new Page('Awards and Activities','Electric',''));//awards icon
 	pages.push(new Page('Education','Dark',''));//education icon
-	pages.push(new Page('Hexponents!','Sunset',''));//hexponents icon
+	pages.push(new Page('More','Sunset',''));//hexponents icon
 	
 	
 	icon_rad = px*6.5;
